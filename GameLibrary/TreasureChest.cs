@@ -1,23 +1,16 @@
 ﻿namespace GameLibrary;
 
-public class TreasureChest
+internal class TreasureChest
 {
-    public TreasureChest(bool isLocked)
+    internal TreasureChest(bool isLocked)
     {
         IsLocked = isLocked;
     }
 
-    public bool IsLocked { get; set; }
+    internal bool IsLocked { get; set; }
 
-    public bool CanOpen(bool hasKey)
+    internal bool CanOpen(bool hasKey)
     {
-        if (IsLocked && !hasKey)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return !IsLocked || hasKey;
     }
 }
